@@ -20,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 
     
 // });
-Route::get('/users', UserManagement::class)->name('users');
-Auth::routes();
+// Route::get('/users', UserManagement::class)->name('users');
+// Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/{any}', function () {
+    return view('layouts.app');
+})->where('any', '.*');
