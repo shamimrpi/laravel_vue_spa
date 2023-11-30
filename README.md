@@ -64,3 +64,31 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+<div class="options-api">
+
+```js
+export default {
+  emits: {
+    // No validation
+    click: null,
+
+    // Validate submit event
+    submit: ({ email, password }) => {
+      if (email && password) {
+        return true
+      } else {
+        console.warn('Invalid submit event payload!')
+        return false
+      }
+    }
+  },
+  methods: {
+    submitForm(email, password) {
+      this.$emit('submit', { email, password })
+    }
+  }
+}
+```
+
+</div>
